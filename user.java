@@ -9,25 +9,29 @@ public class User {
     private int age;
     private String hometown;
     private String workplace;
-    private BinaryTree friends;
+    private List<User> friends;
     private User left;
     private User right;
     private String password;
 
 
-    public User(int ID ,String name, int age, String hometown, String workplace) {
+    public User(int Id ,String name, int age, String hometown, String workplace) {
         this.Id = Id;
         this.name = name;
         this.age = age;
         this.hometown = hometown;
         this.workplace = workplace;
-        this.friends = new BinaryTree();
+        this.friends = new ArrayList<User>();
     }
 
     public int getId() {
         return Id;
     }
     
+    public void setName(String newName) {
+    this.name = newName;
+}
+
     public String getName() {
         return name;
     }
@@ -50,23 +54,21 @@ public class User {
     
     //Friend sections- Not yet fully implimented
 
-    public void addFriend(Friend friend) {
-        friends.insert(friend);
-    }
+    public void addFriend(User friend) {
+    friends.add(friend);
+}
 
-    public void removeFriend(Friend friend) {
-        friends.delete(friend);
-    }
+public void removeFriend(User friend) {
+    friends.remove(friend);
+}
 
-    public boolean hasFriend(Friend friend) {
-        return friends.contains(friend);
-    }
+public boolean hasFriend(User friend) {
+    return friends.contains(friend);
+}
 
-    public Set<Friend> getFriends() {
-        Set<Friend> friendsSet = new HashSet<>();
-        friends.inOrderTraversal().forEach(friendsSet::add);
-        return friendsSet;
-    }
+public List<User> getFriends() {
+    return friends;
+}
     
     public User getLeft() {
         return left;
