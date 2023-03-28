@@ -52,6 +52,16 @@ class SocialMediaNetwork {
         }
         return commonFriends;
     }
+    
+    public User PasswordCheck(int id, String password) {
+    for (User user : users) {
+        if (user.getId() == id && user.getPassword().equals(password)) {
+            return user;
+        }
+    }
+    return null;
+}
+
 
     public boolean addFriendship(User user1, User user2) {
     if (user1.getFriends().contains(user2)) {
@@ -63,7 +73,6 @@ class SocialMediaNetwork {
     return true;
 }
 
-
     public boolean removeFriendship(User user1, User user2) {
     if (user1.getFriends().contains(user2)) {
         user1.removeFriend(user2);
@@ -71,5 +80,6 @@ class SocialMediaNetwork {
     }
     return false;
 }
+
 
 }

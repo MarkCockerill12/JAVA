@@ -14,16 +14,19 @@ public class User {
     private User right;
     private String password;
 
-
-    public User(int Id ,String name, int age, String hometown, String workplace) {
+ //Constructor!! We like these
+    public User(int Id ,String name, int age, String hometown, String workplace, String password) {
         this.Id = Id;
         this.name = name;
         this.age = age;
         this.hometown = hometown;
         this.workplace = workplace;
-        this.friends = new ArrayList<User>();
+        this.friends = new ArrayList<User>();    
+        this.password = password;
     }
 
+    
+    //Getter Methods
     public int getId() {
         return Id;
     }
@@ -31,7 +34,7 @@ public class User {
     public void setName(String newName) {
     this.name = newName;
 }
-
+    
     public String getName() {
         return name;
     }
@@ -49,9 +52,25 @@ public class User {
     }
     
     public String getPassword() {
-        return name;
+        return password;
     }
     
+    //Setter methods
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setWorkplace(String workplace) {
+        this.workplace = workplace;
+    }
+
+    public void setHometown(String hometown) {
+        this.hometown = hometown;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
     //Friend sections- Not yet fully implimented
 
     public void addFriend(User friend) {
